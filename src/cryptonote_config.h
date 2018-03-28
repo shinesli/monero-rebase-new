@@ -45,7 +45,7 @@
 #define CRYPTONOTE_GETBLOCKTEMPLATE_MAX_BLOCK_SIZE	196608 //size of block (bytes) that is the maximum that miners will produce
 #define CRYPTONOTE_MAX_TX_SIZE                          1000000000
 #define CRYPTONOTE_PUBLIC_ADDRESS_TEXTBLOB_VER          0
-#define CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW            60
+#define CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW            20
 #define CURRENT_TRANSACTION_VERSION                     2
 #define CURRENT_BLOCK_MAJOR_VERSION                     1
 #define CURRENT_BLOCK_MINOR_VERSION                     0
@@ -57,12 +57,12 @@
 // MONEY_SUPPLY - total number coins to be generated
 #define MONEY_SUPPLY                                    ((uint64_t)(-1))
 #define EMISSION_SPEED_FACTOR_PER_MINUTE                (20)
-#define FINAL_SUBSIDY_PER_MINUTE                        ((uint64_t)300000000000) // 3 * pow(10, 11)
+#define FINAL_SUBSIDY_PER_MINUTE                        ((uint64_t)300000000) // 3 * pow(10, 8)
 
 #define CRYPTONOTE_REWARD_BLOCKS_WINDOW                 100
 #define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V1    20000 //size of block (bytes) after which reward for block calculated using block size - before first fork
 #define CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE          600
-#define CRYPTONOTE_DISPLAY_DECIMAL_POINT                12
+#define CRYPTONOTE_DISPLAY_DECIMAL_POINT                9
 // COIN - number of smallest units in one coin
 #define COIN                                            ((uint64_t)1000000000000) // pow(10, 12)
 
@@ -121,7 +121,7 @@
 
 #define ALLOW_DEBUG_COMMANDS
 
-#define CRYPTONOTE_NAME                         "aeon"
+#define CRYPTONOTE_NAME                         "aureum"
 #define CRYPTONOTE_POOLDATA_FILENAME            "poolstate.bin"
 #define CRYPTONOTE_BLOCKCHAINDATA_FILENAME      "data.mdb"
 #define CRYPTONOTE_BLOCKCHAINDATA_LOCK_FILENAME "lock.mdb"
@@ -148,49 +148,49 @@ namespace config
 {
   uint64_t const DEFAULT_FEE_ATOMIC_XMR_PER_KB = 500; // Just a placeholder!  Change me!
   uint8_t const FEE_CALCULATION_MAX_RETRIES = 10;
-  uint64_t const DEFAULT_DUST_THRESHOLD = ((uint64_t)2000000000); // 2 * pow(10, 9)
+  uint64_t const DEFAULT_DUST_THRESHOLD = ((uint64_t)2000000); // 2 * pow(10, 6)
   uint64_t const BASE_REWARD_CLAMP_THRESHOLD = ((uint64_t)100000000); // pow(10, 8)
   std::string const P2P_REMOTE_DEBUG_TRUSTED_PUB_KEY = "0000000000000000000000000000000000000000000000000000000000000000";
 
-  uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0xB2;                // starts with "Wm"
-  uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x2733;   // starts with "Wz"
-  uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x06B8;           // starts with "Xn"
-  uint16_t const P2P_DEFAULT_PORT = 11180;
-  uint16_t const RPC_DEFAULT_PORT = 11181;
-  uint16_t const ZMQ_RPC_DEFAULT_PORT = 11182;
+  uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x60ca;                // starts with "au"
+  uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x1fdd4a;   // starts with "auin"
+  uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x15095f4a;           // starts with "ausub"
+  uint16_t const P2P_DEFAULT_PORT = 11888;
+  uint16_t const RPC_DEFAULT_PORT = 11889;
+  uint16_t const ZMQ_RPC_DEFAULT_PORT = 11890;
   boost::uuids::uuid const NETWORK_ID = { {
-      0x32 ,0x32, 0xF3, 0x91 , 0x81, 0x18 , 0x41, 0x61, 0x17, 0x31, 0x00, 0x82, 0x16, 0xA1, 0xA1, 0x10
+      0x88 ,0x86, 0xF6, 0x81 , 0x91, 0x16 , 0x41, 0x61, 0x17, 0x31, 0x00, 0x82, 0x16, 0xA1, 0xA1, 0x10
     } }; // Bender's nightmare
-  std::string const GENESIS_TX = "013c01ff0001ffffffffffff03029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd08807121012bf2d282da90cee9c7a28c16e81418101ee28607d9e50f706594ee144a453b68";
+  std::string const GENESIS_TX = "011401ff0001ffffffffffff03029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd08807121013bf3d282da90cee9c7a28c16e81418101ee28607d9e50f706594ee144a453b68";
   uint32_t const GENESIS_NONCE = 10000;
 
   namespace testnet
   {
-    uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x0426;              // starts with "Um"
-    uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x2C27;   // starts with "Uz"
-    uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x0AAC;           // starts with "Vn"
-    uint16_t const P2P_DEFAULT_PORT = 21180;
-    uint16_t const RPC_DEFAULT_PORT = 21181;
-    uint16_t const ZMQ_RPC_DEFAULT_PORT = 21182;
+    uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x791e;              // starts with "Ta"
+    uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x6359e;   // starts with "Tai"
+    uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0xc779e;           // starts with "Tas"
+    uint16_t const P2P_DEFAULT_PORT = 21888;
+    uint16_t const RPC_DEFAULT_PORT = 21889;
+    uint16_t const ZMQ_RPC_DEFAULT_PORT = 21890;
     boost::uuids::uuid const NETWORK_ID = { {
-        0x32 ,0x32, 0xF3, 0x91 , 0x81, 0x18 , 0x41, 0x61, 0x17, 0x31, 0x00, 0x82, 0x16, 0xA1, 0xA1, 0x11
+        0x88 ,0x86, 0xF6, 0x81 , 0x91, 0x16 , 0x41, 0x61, 0x17, 0x31, 0x00, 0x82, 0x16, 0xA1, 0xA1, 0x11
       } }; // Bender's daydream
-    std::string const GENESIS_TX = "013c01ff0001ffffffffffff03029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd088071210102711ad6274bcf3fa49cf5a99ec02fd3bbfef2dc64fc388df55e7ed8dc310a6f";
+    std::string const GENESIS_TX = "011401ff0001ffffffffffff03029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd088071210102711ad6274bcf3fa49cf5a99ec02fd3bbfef2dc64fc388df55e7ed8dc310a6f";
     uint32_t const GENESIS_NONCE = 10001;
   }
 
   namespace stagenet
   {
-    uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x011A;              // starts with "Sm"
-    uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x2C1B;   // starts with "Sz"
-    uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x0B20;           // starts with "Tn"
-    uint16_t const P2P_DEFAULT_PORT = 31180;
-    uint16_t const RPC_DEFAULT_PORT = 31181;
-    uint16_t const ZMQ_RPC_DEFAULT_PORT = 31182;
+    uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x7c18;              // starts with "Sa"
+    uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x7898;   // starts with "Sai"
+    uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x7a98;           // starts with "Sas"
+    uint16_t const P2P_DEFAULT_PORT = 31888;
+    uint16_t const RPC_DEFAULT_PORT = 31889;
+    uint16_t const ZMQ_RPC_DEFAULT_PORT = 31890;
     boost::uuids::uuid const NETWORK_ID = { {
-        0x32 ,0x32, 0xF3, 0x91 , 0x81, 0x18 , 0x41, 0x61, 0x17, 0x31, 0x00, 0x82, 0x16, 0xA1, 0xA1, 0x12
+        0x88 ,0x86, 0xF6, 0x81 , 0x91, 0x16 , 0x41, 0x61, 0x17, 0x31, 0x00, 0x82, 0x16, 0xA1, 0xA1, 0x12
       } }; // Bender's daydream
-    std::string const GENESIS_TX = "013c01ff0001ffffffffffff0302c54039027b245ae1de97344b5fadd4e3cd01351a0be40579851f565eb885204321015c1d22ecd66bdbf49c80bedf15c72040d059f80a312a85c696841ea8ee53ca34";
+    std::string const GENESIS_TX = "011401ff0001ffffffffffff0302c54039027b245ae1de97344b5fadd4e3cd01351a0be40579851f565eb885204321015c1d22ecd66bdbf49c80bedf15c72040d059f80a312a85c696841ea8ee53ca34";
     uint32_t const GENESIS_NONCE = 10002;
   }
 }
